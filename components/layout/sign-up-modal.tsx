@@ -10,29 +10,29 @@ import {
 import { LoadingDots, Google } from "@/components/shared/icons";
 import Image from "next/image";
 
-const SignInModal = ({
-  showSignInModal,
-  setShowSignInModal,
+const SignUpModal = ({
+  showSignUpModal,
+  setShowSignUpModal,
 }: {
-  showSignInModal: boolean;
-  setShowSignInModal: Dispatch<SetStateAction<boolean>>;
+  showSignUpModal: boolean;
+  setShowSignUpModal: Dispatch<SetStateAction<boolean>>;
 }) => {
   const [signInClicked, setSignInClicked] = useState(false);
 
   return (
-    <Modal showModal={showSignInModal} setShowModal={setShowSignInModal}>
+    <Modal showModal={showSignUpModal} setShowModal={setShowSignUpModal}>
       <div className="w-full overflow-hidden shadow-xl md:max-w-md md:rounded-2xl md:border md:border-gray-200">
         <div className="flex flex-col items-center justify-center space-y-3 border-b border-gray-200 bg-white px-4 py-6 pt-8 text-center md:px-16">
-          <a href="https://precedent.dev">
+          <a href="#">
             <Image
-              src="/logo.png"
+              src="/logo_pulpis.webp"
               alt="Logo"
-              className="h-10 w-10 rounded-full"
+              className="h-12 w-10"
               width={20}
               height={20}
             />
           </a>
-          <h3 className="font-display text-2xl font-bold">Sign In</h3>
+          <h3 className="font-display text-2xl font-bold">Daftar</h3>
           <p className="text-sm text-gray-500">
             This is strictly for demo purposes - only your email and profile
             picture will be stored.
@@ -57,7 +57,7 @@ const SignInModal = ({
             ) : (
               <>
                 <Google className="h-5 w-5" />
-                <p>Sign In with Google</p>
+                <p>Daftar</p>
               </>
             )}
           </button>
@@ -67,20 +67,20 @@ const SignInModal = ({
   );
 };
 
-export function useSignInModal() {
-  const [showSignInModal, setShowSignInModal] = useState(false);
+export function useSignUpModal() {
+  const [showSignUpModal, setShowSignUpModal] = useState(false);
 
-  const SignInModalCallback = useCallback(() => {
+  const SignUpModalCallback = useCallback(() => {
     return (
-      <SignInModal
-        showSignInModal={showSignInModal}
-        setShowSignInModal={setShowSignInModal}
+      <SignUpModal
+        showSignUpModal={showSignUpModal}
+        setShowSignUpModal={setShowSignUpModal}
       />
     );
-  }, [showSignInModal, setShowSignInModal]);
+  }, [showSignUpModal, setShowSignUpModal]);
 
   return useMemo(
-    () => ({ setShowSignInModal, SignInModal: SignInModalCallback }),
-    [setShowSignInModal, SignInModalCallback],
+    () => ({ setShowSignUpModal, SignUpModal: SignUpModalCallback }),
+    [setShowSignUpModal, SignUpModalCallback],
   );
 }

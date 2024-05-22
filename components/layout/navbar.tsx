@@ -3,44 +3,57 @@
 import Image from "next/image";
 import Link from "next/link";
 import useScroll from "@/lib/hooks/use-scroll";
-import { useSignInModal } from "./sign-in-modal";
+import { useSignUpModal } from "./sign-up-modal";
 import UserDropdown from "./user-dropdown";
 import { Session } from "next-auth";
 
 export default function NavBar({ session }: { session: Session | null }) {
-  const { SignInModal, setShowSignInModal } = useSignInModal();
+  const { SignUpModal, setShowSignUpModal } = useSignUpModal();
   const scrolled = useScroll(50);
 
   return (
     <>
-      <SignInModal />
+      <SignUpModal />
       <div
-        className={`fixed top-0 w-full flex justify-center ${
+        className={`fixed top-0 w-full flex justify-center  ${
           scrolled
             ? "border-b border-gray-200 bg-white/50 backdrop-blur-xl"
             : "bg-white/0"
-        } z-30 transition-all`}
+        } z-30 transition-all text-white`}
       >
         <div className="mx-5 flex h-16 max-w-screen-xl items-center justify-between w-full">
-          <Link href="/" className="flex items-center font-display text-2xl">
+          <Link href="/" className="flex items-center font-display text-[10px]">
             <Image
-              src="/logo.png"
-              alt="Precedent logo"
-              width="30"
-              height="30"
+              src="/logo_pulpis.webp"
+              alt="Logo Kabupaten Pulang Pisau"
+              width="36"
+              height="40"
               className="mr-2 rounded-sm"
             ></Image>
-            <p>Precedent</p>
+            <p>DINAS KEBUDAYAAN, KEPEMUDAAN,
+              <br/> OLAHRAGA DAN PARIWISATA
+              <br/>KABUPATEN PULANG PISAU</p>
           </Link>
+          <div className="mx-5 flex h-16 max-w-screen-xl items-center justify-between w-1/3">
+            <Link href="/" className="flex items-center font-display text-sm hover:text-black transition-all">
+              <p>Data Tempat Wisata</p>
+            </Link>
+            <Link href="/" className="flex items-center font-display text-sm hover:text-black transition-all">
+              <p>Amenitas</p>
+            </Link>
+            <Link href="/" className="flex items-center font-display text-sm hover:text-black transition-all">
+              <p>Data Pendukung</p>
+            </Link>
+          </div>
           <div>
             {session ? (
               <UserDropdown session={session} />
             ) : (
               <button
-                className="rounded-full border border-black bg-black p-1.5 px-4 text-sm text-white transition-all hover:bg-white hover:text-black"
-                onClick={() => setShowSignInModal(true)}
+                className="rounded-full border border-white bg-transparent p-1.5 px-4 text-sm text-white transition-all hover:bg-white hover:text-black"
+                onClick={() => setShowSignUpModal(true)}
               >
-                Sign In
+                Daftar
               </button>
             )}
           </div>

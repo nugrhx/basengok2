@@ -78,7 +78,7 @@ export default async function Home() {
             layout={'fill'} 
             objectFit={'cover'}
           />
-          <div className="absolute inset-0 bg-slate-900 opacity-50"></div>
+          <div className="absolute inset-0 bg-black opacity-50"></div>
         </div>
     </>
   );

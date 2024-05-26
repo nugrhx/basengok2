@@ -1,27 +1,8 @@
-import Card from "@/components/home/card";
 import { DEPLOY_URL } from "@/lib/constants";
-import { Github, Twitter } from "@/components/shared/icons";
-import WebVitals from "@/components/home/web-vitals";
-import ComponentGrid from "@/components/home/component-grid";
+import { ChevronRight } from "lucide-react";
 import Image from "next/image";
-import { nFormatter } from "@/lib/utils";
 
 export default async function Home() {
-  const { stargazers_count: stars } = await fetch(
-    "https://api.github.com/repos/steven-tey/precedent",
-    {
-      ...(process.env.GITHUB_OAUTH_TOKEN && {
-        headers: {
-          Authorization: `Bearer ${process.env.GITHUB_OAUTH_TOKEN}`,
-          "Content-Type": "application/json",
-        },
-      }),
-      // data will revalidate every 24 hours
-      next: { revalidate: 86400 },
-    },
-  )
-    .then((res) => res.json())
-    .catch((e) => console.log(e));
 
   return (
     <>
@@ -32,16 +13,16 @@ export default async function Home() {
             Selamat Datang di
         </p>
         <h1
-          className="animate-fade-up bg-gradient-to-br from-white to-slate-200 bg-clip-text text-center font-display font-bold tracking-[-0.02em] text-transparent opacity-0 drop-shadow-sm [text-wrap:balance] md:text-8xl md:leading-[5rem] sm:text-6xl sm:leading-[5rem] uppercase"
+          className="animate-fade-up bg-gradient-to-br from-white to-slate-200 bg-clip-text text-center font-display font-bold tracking-[-0.02em] text-transparent opacity-0 drop-shadow-sm [text-wrap:balance] sm:text-6xl sm:leading-[3rem] md:text-8xl md:leading-[5rem] uppercase"
           style={{ animationDelay: "0.15s", animationFillMode: "forwards" }}
         >
           Basengok
         </h1>
         <p
-          className="mt-6 animate-fade-up text-center text-gray-200 opacity-0 [text-wrap:balance] md:text-xl sm:text-base"
+          className="mt-6 animate-fade-up font-sans font-medium text-center text-gray-200 opacity-0 [text-wrap:balance] sm:text-[12px] md:text-xl "
           style={{ animationDelay: "0.25s", animationFillMode: "forwards" }}
         >
-          DINAS KEBUDAYAAN, KEPEMUDAAN, OLAHRAGA DAN PARIWISATA KABUPATEN PULANG PISAU.
+          DINAS KEBUDAYAAN, KEPEMUDAAN, OLAHRAGA <br className="min-[768px]:hidden"/> DAN PARIWISATA KABUPATEN PULANG PISAU.
         </p>
         <div
           className="mx-auto mt-6 flex animate-fade-up items-center justify-center space-x-5 opacity-0"
@@ -54,18 +35,7 @@ export default async function Home() {
             rel="noopener noreferrer"
           >
             <p>Explore Pulang Pisau</p>
-            <svg xmlns="http://www.w3.org/2000/svg"
-              fill="none" 
-              viewBox="0 0 24 24" 
-              strokeWidth={1.5} 
-              stroke="currentColor" 
-              className="h-4 w-4 ml-1">
-                <path
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                d="m8.25 4.5 7.5 7.5-7.5 7.5"
-                />
-            </svg>
+            <ChevronRight size={20} strokeWidth={1.25} absoluteStrokeWidth />
           </a>
         </div>
       </div>

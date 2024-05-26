@@ -7,10 +7,10 @@ import { Suspense } from "react";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
 
 export const metadata = {
-  title: "Precedent - Building blocks for your Next.js project",
+  title: "BASENGOK - DINAS KEBUDAYAAN, KEPEMUDAAN, OLAHRAGA DAN PARIWISATA KABUPATEN PULANG PISAU",
   description:
-    "Precedent is the all-in-one solution for your Next.js project. It includes a design system, authentication, analytics, and more.",
-  metadataBase: new URL("https://precedent.dev"),
+    "BASENGOK is the all-in-one solution for your trip to Pulang Pisau Regency.",
+  metadataBase: new URL("https://basengok.pulangpisaukab.go.id"),
 };
 
 export default async function RootLayout({

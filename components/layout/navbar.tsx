@@ -21,7 +21,8 @@ export default function NavBar({ session }: { session: Session | null }) {
             : "bg-white/0"
         } z-30 transition-all text-white`}
       >
-        <div className="mx-5 flex h-16 max-w-screen-xl items-center justify-between w-full">
+  
+        <div className="mx-5 flex h-16 max-w-screen-xl items-center justify-between w-full" id="navbar">
           <Link href="/" className="flex items-center font-display text-[10px]">
             <Image
               src="/logo_pulpis.webp"
@@ -34,18 +35,20 @@ export default function NavBar({ session }: { session: Session | null }) {
               <br/> OLAHRAGA DAN PARIWISATA
               <br/>KABUPATEN PULANG PISAU</p>
           </Link>
-          <div className="mx-5 flex h-16 max-w-screen-xl items-center justify-between w-1/3">
-            <Link href="/" className="flex items-center font-display text-sm hover:text-black transition-all">
-              <p>Data Tempat Wisata</p>
+
+          <div className="max-[1080px]:hidden flex items-center justify-between w-1/3">
+            <Link href="/" className="flex items-center font-display text-sm hover:text-gray-300 transition-all">
+              <p>Daerah Tempat Wisata</p>
             </Link>
-            <Link href="/" className="flex items-center font-display text-sm hover:text-black transition-all">
+            <Link href="/" className="flex items-center font-display text-sm hover:text-gray-300 transition-all">
               <p>Amenitas</p>
             </Link>
-            <Link href="/" className="flex items-center font-display text-sm hover:text-black transition-all">
+            <Link href="/" className="flex items-center font-display text-sm hover:text-gray-300 transition-all">
               <p>Data Pendukung</p>
             </Link>
           </div>
-          <div>
+
+          <div className="">
             {session ? (
               <UserDropdown session={session} />
             ) : (
@@ -57,6 +60,7 @@ export default function NavBar({ session }: { session: Session | null }) {
               </button>
             )}
           </div>
+
         </div>
       </div>
     </>

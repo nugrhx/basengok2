@@ -1,6 +1,7 @@
 import { DEPLOY_URL } from "@/lib/constants";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default async function Home() {
 
@@ -28,15 +29,13 @@ export default async function Home() {
           className="mx-auto mt-6 flex animate-fade-up items-center justify-center space-x-5 opacity-0"
           style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
         >
-          <a
+          <Link
             className="group flex max-w-fit items-center justify-center space-x-2 rounded-full border border-black bg-black px-5 py-2 text-sm text-white transition-colors hover:bg-white hover:text-black"
-            href={DEPLOY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/dtw"
           >
             <p>Explore Pulang Pisau</p>
             <ChevronRight size={20} strokeWidth={1.25} absoluteStrokeWidth />
-          </a>
+          </Link>
         </div>
       </div>
       
@@ -46,6 +45,8 @@ export default async function Home() {
             src="/landing.jpg"
             alt="Lake with mountains in the background, blue sky and green trees along the shore"
             layout={'fill'} 
+            priority={true}
+            quality={100}
             objectFit={'cover'}
           />
           <div className="absolute inset-0 bg-black opacity-50"></div>

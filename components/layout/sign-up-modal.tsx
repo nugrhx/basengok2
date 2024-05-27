@@ -9,6 +9,7 @@ import {
 } from "react";
 import { LoadingDots, Google } from "@/components/shared/icons";
 import Image from "next/image";
+import Link from "next/link";
 
 const SignUpModal = ({
   showSignUpModal,
@@ -44,10 +45,13 @@ const SignUpModal = ({
               <p>Daftar</p>
             </button>
 
-            <button className="border-gray-200 bg-white text-black hover:bg-gray-50 flex h-10 w-full items-center justify-center space-x-3 rounded-md text-sm shadow-sm transition-all duration-75 focus:outline-none">
+          <Link href="admin">
+            <button className="border-gray-200 bg-white text-black hover:bg-gray-50 flex h-10 w-full items-center justify-center space-x-3 rounded-md text-sm shadow-sm transition-all duration-75 focus:outline-none" >
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-log-in w-4 h-4"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" x2="3" y1="12" y2="12"/></svg>
               <p>Login</p>
             </button>
+          </Link>
+        
         </div>
       </div>
     </Modal>

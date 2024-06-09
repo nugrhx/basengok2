@@ -30,8 +30,8 @@ export default function NavBar({ session }: { session: Session | null }) {
               width="38"
               height="42"
               className="mr-2 rounded-sm"
-            ></Image>
-            <p>DINAS KEBUDAYAAN, KEPEMUDAAN,
+            />
+            <p className="max-sm:hidden">DINAS KEBUDAYAAN, KEPEMUDAAN,
               <br/> OLAHRAGA DAN PARIWISATA
               <br/>KABUPATEN PULANG PISAU</p>
           </Link>

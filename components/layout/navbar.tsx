@@ -33,7 +33,8 @@ export default function NavBar({ session }: { session: Session | null }) {
             />
             <p className="max-sm:hidden">DINAS KEBUDAYAAN, KEPEMUDAAN,
               <br/> OLAHRAGA DAN PARIWISATA
-              <br/>KABUPATEN PULANG PISAU</p>
+              <br/> KABUPATEN PULANG PISAU
+            </p>
           </Link>
 
           <div className="max-[1080px]:hidden flex items-center justify-between w-1/3">

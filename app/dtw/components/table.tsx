@@ -6,11 +6,11 @@ export const dynamic = 'force-dynamic'
 
 export default async function Table() {
   const startTime = Date.now()
-  const wisata = await prisma.dtw.findMany({
-    orderBy: {
-    id: 'asc',
-  },
-  })
+  // const wisata = await prisma.dtw.findMany({
+  //   orderBy: {
+  //   id: 'asc',
+  // },
+  // })
   const duration = Date.now() - startTime
 
   return (
@@ -19,13 +19,13 @@ export default async function Table() {
         <div className="space-y-1">
           <h2 className="text-xl font-semibold">Daya Tarik Wisata</h2>
           <p className="text-sm text-gray-500">
-            Fetched {wisata.length} users in {duration}ms
+            {/* Fetched {wisata.length} users in {duration}ms */}
           </p>
         </div>
         <Reload/>
       </div>
       <div className="divide-y divide-gray-900/5">
-        {wisata.map((dtw) => (
+        {/* {wisata.map((dtw) => (
           <div
             key={dtw.id}
             className="flex items-center justify-between py-3"
@@ -46,7 +46,7 @@ export default async function Table() {
             </div>
             <p className="text-sm text-gray-500">{dtw.address}</p>
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   )

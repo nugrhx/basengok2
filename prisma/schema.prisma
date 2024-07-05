@@ -2,7 +2,8 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
 }
 
 datasource db {
@@ -11,27 +12,54 @@ datasource db {
   directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
 }
 
+model Admin {
+  id        Int      @id @default(autoincrement())
+  uuid      String   @unique
+  nama      String
+  email     String
+  username  String
+  password  String
+  foto      Bytes?
+  role      String
+  createdAt DateTime
+  updatedAt DateTime
+}
+
+model Amenitas {
+  id_amn          Int            @id @default(autoincrement())
+  lokasi          String
+  kategori_amn    String
+  daftar_amn      String
+  gambarlokasiamn Bytes
+  videolokasiamn  Bytes
+  Datapendukung   Datapendukung?
+}
+
+model Datapendukung {
+  dtwid         Int
+  amnid         Int
+  jmlhkunjungan Int
+  dtw           Dtw      @relation(fields: [dtwid], references: [id_dtw])
+  amenitas      Amenitas @relation(fields: [amnid], references: [id_amn])
+
+  @@unique([amnid])
+  @@index([dtwid])
+}
+
 model Dtw {
-  id          Int      @id @default(autoincrement())
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  title       String
-  description String   @db.Text
-  imageUrl    String
-  address     String   @db.Text
+  id_dtw          Int             @id @default(autoincrement())
+  lokasi          String
+  kategori_dtw    String
+  daftar_dtw      String
+  gambarlokasidtw Bytes
+  videolokasidtw  Bytes
+  datapendukung   Datapendukung[]
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  username  String?  @unique
-  password  String
-  image     String?
-  role      Role     @default(USER)
-}
-
-enum Role {
-  USER
-  ADMIN
+  id       Int    @id @default(autoincrement())
+  nama     String
+  ttl      String
+  instansi String
+  email    String
 }
